@@ -1,0 +1,793 @@
+******************************************************************************
+              TMS320C55x Linker PC v4.4.1                      
+******************************************************************************
+>> Linked Wed Sep 25 14:42:39 2024
+
+OUTPUT FILE NAME:   <realtime_tremolo.out>
+ENTRY POINT SYMBOL: "reset_isr"  address: 00014a86
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+                        (bytes)   (bytes)    (bytes)   (bytes)
+----------------------  --------  ---------  --------  --------  ----  --------
+  MMR                   00000000   000000c0  00000000  000000c0  RW  
+  DARAM_0               000000c0   00001f40  0000072a  00001816  RW  
+  DARAM_1               00002000   00002000  00000800  00001800  RW  
+  DARAM_2               00004000   00002000  00001800  00000800  RW  
+  DARAM_3               00006000   00002000  00002000  00000000  RW  
+  DARAM_4               00008000   00002000  00001000  00001000  RW  
+  DARAM_5               0000a000   00002000  00000000  00002000  RW  
+  DARAM_6               0000c000   00002000  00001000  00001000  RW  
+  DARAM_7               0000e000   00002000  00001000  00001000  RW  
+  SARAM                 00010000   00040000  000059a2  0003a65e  RW  
+  EMIF_CS0              00050000   007b0000  00000000  007b0000  RW  
+  EMIF_CS2              00800000   00400000  00000000  00400000  RW  
+  EMIF_CS3              00c00000   00200000  00000000  00200000  RW  
+  EMIF_CS4              00e00000   00100000  00000000  00100000  RW  
+  EMIF_CS5              00f00000   000e0000  00000000  000e0000  RW  
+  SAROM_0               00fe0000   00008000  00000000  00008000  R  X
+  SAROM_1               00fe8000   00008000  00000000  00008000  R  X
+  SAROM_2               00ff0000   00008000  00000000  00008000  R  X
+  SAROM_3               00ff8000   00007f00  00000000  00007f00  R  X
+  VECS                  00ffff00   00000100  00000000  00000100  R  X
+
+
+SECTION ALLOCATION MAP
+(Addresses surrounded by []'s are displayed for convenience only!)
+
+output                                                          attributes/
+section   page  orgn(bytes) orgn(words) len(bytes) len(words)   input sections
+--------  ----  ----------- ----------- ---------- ----------   --------------
+.bss         0   [ 000000c0 ]  00000060          *   00000295   UNINITIALIZED
+                 [ 000000c0 ]  00000060          *   00000119   rts55x.lib : defs.obj (.bss)
+                 [ 000002f2 ]  00000179          *   000000d0              : trgdrv.obj (.bss)
+                 [ 00000492 ]  00000249          *   00000001   myC55xUtil.lib : i2s.obj (.bss)
+                 [ 00000494 ]  0000024a          *   00000071   rts55x.lib : lowlev.obj (.bss)
+                 [ 00000576 ]  000002bb          *   00000001              : fopen.obj (.bss)
+                 [ 00000578 ]  000002bc          *   00000016   myC55xUtil.lib : dma.obj (.bss)
+                 [ 000005a4 ]  000002d2          *   0000000a   realtime_tremolo.obj (.bss)
+                 [ 000005b8 ]  000002dc          *   00000008   rts55x.lib : sin.obj (.bss)
+                 [ 000005c8 ]  000002e4          *   00000006              : memory.obj (.bss)
+                 [ 000005d4 ]  000002ea          *   00000004              : _lock.obj (.bss)
+                 [ 000005dc ]  000002ee          *   00000004              : exit.obj (.bss)
+                 [ 000005e4 ]  000002f2          *   00000003   myC55xUtil.lib : AIC3204_init.obj (.bss)
+
+vector       0     00000600  [ 00000300 ] 00000100          *   
+                   00000600  [ 00000300 ] 00000100          *   vector.obj (vector)
+
+vectors      0     00000700  [ 00000380 ] 00000100          *   NOLOAD SECTION
+                   00000700  [ 00000380 ] 00000100          *   rts55x.lib : vectors.obj (vectors)
+
+scratch_buf 
+*            0   [ 00002000 ]  00001000          *   00000400   UNINITIALIZED
+                 [ 00002000 ]  00001000          *   00000400   realtime_tremolo.obj (scratch_buf)
+
+.stack       0   [ 00004000 ]  00002000          *   00000800   UNINITIALIZED
+                 [ 00004000 ]  00002000          *   00000800   --HOLE--
+
+.data        0   [ 00004000 ]  00002000          *   00000000   UNINITIALIZED
+
+.sysstack 
+*            0   [ 00005000 ]  00002800          *   00000400   UNINITIALIZED
+                 [ 00005000 ]  00002800          *   00000400   --HOLE--
+
+.sysmem      0   [ 00006000 ]  00003000          *   00000800   UNINITIALIZED
+                 [ 00006000 ]  00003000          *   00000800   --HOLE--
+
+RcvL1        0   [ 00007000 ]  00003800          *   00000400   UNINITIALIZED
+                 [ 00007000 ]  00003800          *   00000400   realtime_tremolo.obj (RcvL1)
+
+RcvL2        0   [ 00007800 ]  00003c00          *   00000400   UNINITIALIZED
+                 [ 00007800 ]  00003c00          *   00000400   realtime_tremolo.obj (RcvL2)
+
+RcvR1        0   [ 00008000 ]  00004000          *   00000400   UNINITIALIZED
+                 [ 00008000 ]  00004000          *   00000400   realtime_tremolo.obj (RcvR1)
+
+RcvR2        0   [ 00008800 ]  00004400          *   00000400   UNINITIALIZED
+                 [ 00008800 ]  00004400          *   00000400   realtime_tremolo.obj (RcvR2)
+
+XmitL1       0   [ 0000c000 ]  00006000          *   00000400   UNINITIALIZED
+                 [ 0000c000 ]  00006000          *   00000400   realtime_tremolo.obj (XmitL1)
+
+XmitL2       0   [ 0000c800 ]  00006400          *   00000400   UNINITIALIZED
+                 [ 0000c800 ]  00006400          *   00000400   realtime_tremolo.obj (XmitL2)
+
+XmitR1       0   [ 0000e000 ]  00007000          *   00000400   UNINITIALIZED
+                 [ 0000e000 ]  00007000          *   00000400   realtime_tremolo.obj (XmitR1)
+
+XmitR2       0   [ 0000e800 ]  00007400          *   00000400   UNINITIALIZED
+                 [ 0000e800 ]  00007400          *   00000400   realtime_tremolo.obj (XmitR2)
+
+.text        0     00010000  [ 00008000 ] 0000527c          *   
+                   00010000  [ 00008000 ] 000015a4          *   rts55x.lib : _printfi.obj (.text)
+                   000115a4  [ 00008ad2 ] 00000543          *              : lowlev.obj (.text)
+                   00011ae7  [ 00008d73+] 00000528          *              : trgdrv.obj (.text)
+                   0001200f  [ 00009007+] 000004b5          *              : memory.obj (.text)
+                   000124c4  [ 00009262 ] 000004a3          *   myC55xUtil.lib : dma.obj (.text)
+                   00012967  [ 000094b3+] 000003cc          *   rts55x.lib : divd.obj (.text)
+                   00012d33  [ 00009699+] 0000032e          *   myC55xUtil.lib : AIC3204_init.obj (.text)
+                   00013061  [ 00009830+] 00000313          *   realtime_tremolo.obj (.text)
+                   00013374  [ 000099ba ] 00000298          *   myC55xUtil.lib : i2s_register.obj (.text)
+                   0001360c  [ 00009b06 ] 0000027f          *   rts55x.lib : fopen.obj (.text)
+                   0001388b  [ 00009c45+] 0000025e          *              : llmpy.obj (.text)
+                   00013ae9  [ 00009d74+] 0000025a          *              : addd.obj (.text)
+                   00013d43  [ 00009ea1+] 000001f2          *              : sin.obj (.text)
+                   00013f35  [ 00009f9a+] 000001ea          *              : cmpd.obj (.text)
+                   0001411f  [ 0000a08f+] 00000163          *              : fputs.obj (.text)
+                   00014282  [ 0000a141 ] 0000014c          *              : mpyd.obj (.text)
+                   000143ce  [ 0000a1e7 ] 000000e6          *              : setvbuf.obj (.text)
+                   000144b4  [ 0000a25a ] 000000dd          *              : _io_perm.obj (.text)
+                   00014591  [ 0000a2c8+] 000000c2          *              : fflush.obj (.text)
+                   00014653  [ 0000a329+] 000000bf          *              : modf.obj (.text)
+                   00014712  [ 0000a389 ] 000000ba          *              : trgmsg.obj (.text:CIO_breakpoint)
+                   000147cc  [ 0000a3e6 ] 000000a6          *              : fputc.obj (.text)
+                   00014872  [ 0000a439 ] 000000a1          *              : divul.obj (.text)
+                   00014913  [ 0000a489+] 0000007d          *              : ltoa.obj (.text)
+                   00014990  [ 0000a4c8 ] 0000007b          *   realtime_tremoloTest.obj (.text)
+                   00014a0b  [ 0000a505+] 0000007b          *   rts55x.lib : fclose.obj (.text)
+                   00014a86  [ 0000a543 ] 00000079          *   vector.obj (.text)
+                   00014aff  [ 0000a57f+] 00000076          *   rts55x.lib : frcmpyd.obj (.text)
+                   00014b75  [ 0000a5ba+] 00000073          *              : frcmpyd_div.obj (.text)
+                   00014be8  [ 0000a5f4 ] 00000072          *              : remul.obj (.text)
+                   00014c5a  [ 0000a62d ] 0000006f          *              : fixdli.obj (.text)
+                   00014cc9  [ 0000a664+] 0000006d          *              : trgmsg.obj (.text)
+                   00014d36  [ 0000a69b ] 0000006b          *              : fseek.obj (.text)
+                   00014da1  [ 0000a6d0+] 00000067          *              : fltlid.obj (.text)
+                   00014e08  [ 0000a704 ] 0000005f          *              : round.obj (.text)
+                   00014e67  [ 0000a733+] 0000005c          *              : atoi.obj (.text)
+                   00014ec3  [ 0000a761+] 00000051          *   myC55xUtil.lib : i2s.obj (.text)
+                   00014f14  [ 0000a78a ] 00000050          *   rts55x.lib : printf.obj (.text)
+                   00014f64  [ 0000a7b2 ] 0000004d          *              : autoinit.obj (.text)
+                   00014fb1  [ 0000a7d8+] 0000004b          *              : args_main.obj (.text)
+                   00014ffc  [ 0000a7fe ] 0000004b          *              : remli.obj (.text)
+                   00015047  [ 0000a823+] 00000048          *              : divli.obj (.text)
+                   0001508f  [ 0000a847+] 00000041          *              : trunc.obj (.text)
+                   000150d0  [ 0000a868 ] 0000003f          *              : memcpy.obj (.text)
+                   0001510f  [ 0000a887+] 0000003e          *              : exit.obj (.text)
+                   0001514d  [ 0000a8a6+] 00000034          *              : boot.obj (.text)
+                   00015181  [ 0000a8c0+] 0000002a          *              : fixdi.obj (.text)
+                   000151ab  [ 0000a8d5+] 0000002a          *              : udiv.obj (.text)
+                   000151d5  [ 0000a8ea+] 00000023          *              : memccpy.obj (.text)
+                   000151f8  [ 0000a8fc ] 0000001a          *              : isinf.obj (.text)
+                   00015212  [ 0000a909 ] 00000014          *              : subd.obj (.text)
+                   00015226  [ 0000a913 ] 00000013          *              : lmpy.obj (.text)
+                   00015239  [ 0000a91c+] 00000012          *              : _lock.obj (.text)
+                   0001524b  [ 0000a925+] 00000010          *              : negd.obj (.text)
+                   0001525b  [ 0000a92d+] 0000000c          *              : fltid.obj (.text)
+                   00015267  [ 0000a933+] 0000000a          *              : remove.obj (.text)
+                   00015271  [ 0000a938+] 00000007          *              : exit.obj (.text:CIO_breakpoint)
+                   00015278  [ 0000a93c ] 00000002          *              : vectors.obj (.text)
+                   0001527a  [ 0000a93d ] 00000002          *   --HOLE-- [fill = 20]
+
+.const       0   [ 0001527c ]  0000a93e          *   000001d8   
+                 [ 0001527c ]  0000a93e          *   00000101   rts55x.lib : ctype.obj (.const:__ctypes_)
+                 [ 0001547e ]  0000aa3f          *   00000001   --HOLE-- [fill = 0]
+                 [ 00015480 ]  0000aa40          *   0000003a   realtime_tremolo.obj (.const:.string)
+                 [ 000154f4 ]  0000aa7a          *   00000026   realtime_tremoloTest.obj (.const:.string)
+                 [ 00015540 ]  0000aaa0          *   00000024   rts55x.lib : _printfi.obj (.const:.string)
+                 [ 00015588 ]  0000aac4          *   00000014   realtime_tremolo.obj (.const)
+                 [ 000155b0 ]  0000aad8          *   00000014   rts55x.lib : sin.obj (.const)
+                 [ 000155d8 ]  0000aaec          *   0000000c              : _printfi.obj (.const)
+                 [ 000155f0 ]  0000aaf8          *   00000008              : divd.obj (.const:_initial_approx$1)
+                 [ 00015600 ]  0000ab00          *   00000008              : round.obj (.const)
+                 [ 00015610 ]  0000ab08          *   00000006              : modf.obj (.const)
+                 [ 0001561c ]  0000ab0e          *   00000004              : trunc.obj (.const)
+                 [ 00015624 ]  0000ab12          *   00000002              : fputs.obj (.const:.string)
+                 [ 00015628 ]  0000ab14          *   00000002              : fltlid.obj (.const)
+
+.cio         0   [ 00015630 ]  0000ab18          *   00000120   UNINITIALIZED
+                 [ 00015630 ]  0000ab18          *   00000120   rts55x.lib : trgmsg.obj (.cio)
+
+.cinit       0   [ 00015870 ]  0000ac38          *   0000009b   
+                 [ 00015870 ]  0000ac38          *   0000002d   rts55x.lib : lowlev.obj (.cinit)
+                 [ 000158ca ]  0000ac65          *   0000002a              : defs.obj (.cinit)
+                 [ 0001591e ]  0000ac8f          *   00000018   myC55xUtil.lib : dma.obj (.cinit)
+                 [ 0001594e ]  0000aca7          *   0000000b   rts55x.lib : sin.obj (.cinit)
+                 [ 00015964 ]  0000acb2          *   0000000a              : _lock.obj (.cinit)
+                 [ 00015978 ]  0000acbc          *   0000000a              : exit.obj (.cinit)
+                 [ 0001598c ]  0000acc6          *   00000004   myC55xUtil.lib : i2s.obj (.cinit)
+                 [ 00015994 ]  0000acca          *   00000004   rts55x.lib : fopen.obj (.cinit)
+                 [ 0001599c ]  0000acce          *   00000004              : memory.obj (.cinit)
+                 [ 000159a4 ]  0000acd2          *   00000001   --HOLE-- [fill = 0]
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+abs. value/
+byte addr   word addr   name
+---------   ---------   ----
+00000002                $TI_capability$C5500$CallingConvention
+00000002                $TI_capability$C5500$MemoryModel
+00000001                $TI_capability_requires_rev3
+            00000060    .bss
+            00002000    .data
+00010000                .text
+00015272                C$$EXIT
+000147c7                C$$IO$$
+00015226                I$$LMPY
+000151ab                I$$UDIV
+000151c0                I$$UMOD
+00012d33                _AIC3204_init
+            00000249    _Buf_Address
+            000002cc    _CurrentRxL_DMAChannel
+            000002cd    _CurrentRxR_DMAChannel
+            000002ce    _CurrentTxL_DMAChannel
+            000002cf    _CurrentTxR_DMAChannel
+000127a9                _DMA_Isr
+00011fb1                _HOSTclock
+00011f46                _HOSTclose
+00011e91                _HOSTlseek
+00011df2                _HOSTopen
+00011d65                _HOSTread
+00011cb7                _HOSTrename
+00011c59                _HOSTtime
+00011bef                _HOSTunlink
+00011b62                _HOSTwrite
+00000600                _RST
+            00003800    _RcvL1
+            00003c00    _RcvL2
+            00004000    _RcvR1
+            00004400    _RcvR2
+00000700                _Reset
+            000002bc    _RxL1_DMA_address
+            000002be    _RxL2_DMA_address
+            000002c0    _RxR1_DMA_address
+            000002c2    _RxR2_DMA_address
+            000002c4    _TxL1_DMA_address
+            000002c6    _TxL2_DMA_address
+            000002c8    _TxR1_DMA_address
+            000002ca    _TxR2_DMA_address
+            00006000    _XmitL1
+            00006400    _XmitL2
+            00007000    _XmitR1
+            00007400    _XmitR2
+            0000ab18    __CIOBUF_
+            00002800    __STACK_END
+00001000                __STACK_SIZE
+00001000                __SYSMEM_SIZE
+00000800                __SYSSTACK_SIZE
+00000001                __TI_args_main
+ffffffff                ___binit__
+            00000060    ___bss__
+ffffffff                ___c_args__
+            0000ac38    ___cinit__
+            00002000    ___data__
+            00002000    ___edata__
+            000002f5    ___end__
+0001527c                ___etext__
+000151f8                ___isinf
+ffffffff                ___pinit__
+00010000                ___text__
+00013ae9                __addd
+00014fb1                __args_main
+0001372d                __cleanup
+            000002ee    __cleanup_ptr
+000140c7                __cmpd
+            0000a93e    __ctypes_
+00012967                __divd
+00015047                __divli
+00013ab4                __divlli
+000151ab                __divu
+00014872                __divul
+000139c0                __divull
+00014591                __doflush
+            000002f0    __dtors_ptr
+00014093                __eqld
+00015181                __fixdi
+00014c5a                __fixdli
+0001525b                __fltid
+00014da1                __fltlid
+00014aff                __frcmpyd
+00014b75                __frcmpyd_div
+            00000178    __ft_end
+            00000060    __ftable
+00014049                __geqd
+00013ffe                __gtrd
+00013fb1                __leqd
+            000002ea    __lock
+00013f69                __lssd
+00014282                __mpyd
+00015226                __mpyli
+00013908                __mpylli
+0001524b                __negd
+00013f35                __neqd
+00015249                __nop
+00014e08                __nround
+00011362                __printfi
+00014534                __rd_ok
+00015241                __register_lock
+00015239                __register_unlock
+00014ffc                __remli
+000138d9                __remlli
+000151c0                __remu
+00014be8                __remul
+0001388b                __remull
+            00002000    __stack
+00015212                __subd
+            00003000    __sys_memory
+            00002800    __sysstack
+            000000d8    __tmpnams
+0001508f                __trunc
+            000002ec    __unlock
+000144b4                __wrt_ok
+00015271                _abort
+000119f7                _add_device
+00014e67                _atoi
+00014f64                _auto_init
+0001514d                _c_int00
+0001249e                _calloc
+00012496                _chkheap
+00011984                _close
+            00001000    _d_buffer
+000135d4                _disable_i2s0
+000135e2                _disable_i2s1
+000135f0                _disable_i2s2
+000135fe                _disable_i2s3
+0001279c                _enable_dma_int
+0001359c                _enable_i2s0
+000135aa                _enable_i2s1
+000135b8                _enable_i2s2
+000135c6                _enable_i2s3
+0001510f                _exit
+00014a0b                _fclose
+000145fa                _fflush
+0001197b                _find_registered_device
+00013850                _fopen
+000147cc                _fputc
+0001411f                _fputs
+0001200f                _free
+00012440                _free_memory
+00013787                _freopen
+00014d36                _fseek
+00011ae7                _getenv
+00013374                _i2s0_read_CR
+000133bc                _i2s0_read_INTR
+000133c2                _i2s0_read_INT_MASK
+000133ce                _i2s0_read_RXL_LSW
+000133da                _i2s0_read_RXL_MSW
+000133e6                _i2s0_read_RXR_LSW
+000133f2                _i2s0_read_RXR_MSW
+00013380                _i2s0_read_SRGR
+0001338c                _i2s0_read_TXL_LSW
+00013398                _i2s0_read_TXL_MSW
+000133a4                _i2s0_read_TXR_LSW
+000133b0                _i2s0_read_TXR_MSW
+0001337a                _i2s0_write_CR
+000133c8                _i2s0_write_INT_MASK
+000133d4                _i2s0_write_RXL_LSW
+000133e0                _i2s0_write_RXL_MSW
+000133ec                _i2s0_write_RXR_LSW
+000133f8                _i2s0_write_RXR_MSW
+00013386                _i2s0_write_SRGR
+00013392                _i2s0_write_TXL_LSW
+0001339e                _i2s0_write_TXL_MSW
+000133aa                _i2s0_write_TXR_LSW
+000133b6                _i2s0_write_TXR_MSW
+000133fe                _i2s1_read_CR
+00013446                _i2s1_read_INTR
+0001344c                _i2s1_read_INT_MASK
+00013458                _i2s1_read_RXL_LSW
+00013464                _i2s1_read_RXL_MSW
+00013470                _i2s1_read_RXR_LSW
+0001347c                _i2s1_read_RXR_MSW
+0001340a                _i2s1_read_SRGR
+00013416                _i2s1_read_TXL_LSW
+00013422                _i2s1_read_TXL_MSW
+0001342e                _i2s1_read_TXR_LSW
+0001343a                _i2s1_read_TXR_MSW
+00013404                _i2s1_write_CR
+00013452                _i2s1_write_INT_MASK
+0001345e                _i2s1_write_RXL_LSW
+0001346a                _i2s1_write_RXL_MSW
+00013476                _i2s1_write_RXR_LSW
+00013482                _i2s1_write_RXR_MSW
+00013410                _i2s1_write_SRGR
+0001341c                _i2s1_write_TXL_LSW
+00013428                _i2s1_write_TXL_MSW
+00013434                _i2s1_write_TXR_LSW
+00013440                _i2s1_write_TXR_MSW
+00013488                _i2s2_read_CR
+000134d0                _i2s2_read_INTR
+000134d6                _i2s2_read_INT_MASK
+000134e2                _i2s2_read_RXL_LSW
+000134ee                _i2s2_read_RXL_MSW
+000134fa                _i2s2_read_RXR_LSW
+00013506                _i2s2_read_RXR_MSW
+00013494                _i2s2_read_SRGR
+000134a0                _i2s2_read_TXL_LSW
+000134ac                _i2s2_read_TXL_MSW
+000134b8                _i2s2_read_TXR_LSW
+000134c4                _i2s2_read_TXR_MSW
+0001348e                _i2s2_write_CR
+000134dc                _i2s2_write_INT_MASK
+000134e8                _i2s2_write_RXL_LSW
+000134f4                _i2s2_write_RXL_MSW
+00013500                _i2s2_write_RXR_LSW
+0001350c                _i2s2_write_RXR_MSW
+0001349a                _i2s2_write_SRGR
+000134a6                _i2s2_write_TXL_LSW
+000134b2                _i2s2_write_TXL_MSW
+000134be                _i2s2_write_TXR_LSW
+000134ca                _i2s2_write_TXR_MSW
+00013512                _i2s3_read_CR
+0001355a                _i2s3_read_INTR
+00013560                _i2s3_read_INT_MASK
+0001356c                _i2s3_read_RXL_LSW
+00013578                _i2s3_read_RXL_MSW
+00013584                _i2s3_read_RXR_LSW
+00013590                _i2s3_read_RXR_MSW
+0001351e                _i2s3_read_SRGR
+0001352a                _i2s3_read_TXL_LSW
+00013536                _i2s3_read_TXL_MSW
+00013542                _i2s3_read_TXR_LSW
+0001354e                _i2s3_read_TXR_MSW
+00013518                _i2s3_write_CR
+00013566                _i2s3_write_INT_MASK
+00013572                _i2s3_write_RXL_LSW
+0001357e                _i2s3_write_RXL_MSW
+0001358a                _i2s3_write_RXR_LSW
+00013596                _i2s3_write_RXR_MSW
+00013524                _i2s3_write_SRGR
+00013530                _i2s3_write_TXL_LSW
+0001353c                _i2s3_write_TXL_MSW
+00013548                _i2s3_write_TXR_LSW
+00013554                _i2s3_write_TXR_MSW
+00014990                _initGPIO
+            000002d0    _leftChannel
+00011915                _lseek
+00014913                _ltoa
+000149a8                _main
+00012140                _malloc
+000123e6                _max_free
+000151d5                _memccpy
+000150d0                _memcpy
+000120db                _minit
+00014653                _modf
+00011856                _open
+            000002d4    _param
+00014f14                _printf
+0001323f                _process
+000147cc                _putc
+00014863                _putchar
+00014254                _puts
+000117a8                _read
+0001499e                _readGPIO
+00014cc9                _readmsg
+00012235                _realloc
+00015267                _remove
+00011772                _remove_device
+00011719                _rename
+            000002d1    _rightChannel
+000132b1                _rounding16
+000124c4                _setDMA_address
+00012624                _set_dma0_ch0_i2s0_Lout
+000125cc                _set_dma0_ch0_stop
+00012682                _set_dma0_ch1_i2s0_Rout
+000125e2                _set_dma0_ch1_stop
+000126e0                _set_dma0_ch2_i2s0_Lin
+000125f8                _set_dma0_ch2_stop
+0001273e                _set_dma0_ch3_i2s0_Rin
+0001260e                _set_dma0_ch3_stop
+00014ec3                _set_i2s0_master
+00014ef2                _set_i2s0_slave
+000143ce                _setvbuf
+00013d43                _sin
+            000002d2    _t
+0001311e                _tremolo
+00013061                _tremoloInit
+000132f9                _tremoloProcess
+0001333f                _tremoloSweep
+000130b3                _tremolo_init
+000116e6                _unlink
+000115a4                _write
+00014712                _writemsg
+ffffffff                binit
+            0000ac38    cinit
+            00002000    edata
+            000002f5    end
+0001527c                etext
+ffffffff                pinit
+00014a86                reset_isr
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+abs. value/
+byte addr   word addr   name
+---------   ---------   ----
+00000001                $TI_capability_requires_rev3
+00000001                __TI_args_main
+00000002                $TI_capability$C5500$CallingConvention
+00000002                $TI_capability$C5500$MemoryModel
+            00000060    .bss
+            00000060    ___bss__
+            00000060    __ftable
+            000000d8    __tmpnams
+            00000178    __ft_end
+            00000249    _Buf_Address
+            000002bc    _RxL1_DMA_address
+            000002be    _RxL2_DMA_address
+            000002c0    _RxR1_DMA_address
+            000002c2    _RxR2_DMA_address
+            000002c4    _TxL1_DMA_address
+            000002c6    _TxL2_DMA_address
+            000002c8    _TxR1_DMA_address
+            000002ca    _TxR2_DMA_address
+            000002cc    _CurrentRxL_DMAChannel
+            000002cd    _CurrentRxR_DMAChannel
+            000002ce    _CurrentTxL_DMAChannel
+            000002cf    _CurrentTxR_DMAChannel
+            000002d0    _leftChannel
+            000002d1    _rightChannel
+            000002d2    _t
+            000002d4    _param
+            000002ea    __lock
+            000002ec    __unlock
+            000002ee    __cleanup_ptr
+            000002f0    __dtors_ptr
+            000002f5    ___end__
+            000002f5    end
+00000600                _RST
+00000700                _Reset
+00000800                __SYSSTACK_SIZE
+00001000                __STACK_SIZE
+00001000                __SYSMEM_SIZE
+            00001000    _d_buffer
+            00002000    .data
+            00002000    ___data__
+            00002000    ___edata__
+            00002000    __stack
+            00002000    edata
+            00002800    __STACK_END
+            00002800    __sysstack
+            00003000    __sys_memory
+            00003800    _RcvL1
+            00003c00    _RcvL2
+            00004000    _RcvR1
+            00004400    _RcvR2
+            00006000    _XmitL1
+            00006400    _XmitL2
+            00007000    _XmitR1
+            00007400    _XmitR2
+00010000                .text
+00010000                ___text__
+00011362                __printfi
+000115a4                _write
+000116e6                _unlink
+00011719                _rename
+00011772                _remove_device
+000117a8                _read
+00011856                _open
+00011915                _lseek
+0001197b                _find_registered_device
+00011984                _close
+000119f7                _add_device
+00011ae7                _getenv
+00011b62                _HOSTwrite
+00011bef                _HOSTunlink
+00011c59                _HOSTtime
+00011cb7                _HOSTrename
+00011d65                _HOSTread
+00011df2                _HOSTopen
+00011e91                _HOSTlseek
+00011f46                _HOSTclose
+00011fb1                _HOSTclock
+0001200f                _free
+000120db                _minit
+00012140                _malloc
+00012235                _realloc
+000123e6                _max_free
+00012440                _free_memory
+00012496                _chkheap
+0001249e                _calloc
+000124c4                _setDMA_address
+000125cc                _set_dma0_ch0_stop
+000125e2                _set_dma0_ch1_stop
+000125f8                _set_dma0_ch2_stop
+0001260e                _set_dma0_ch3_stop
+00012624                _set_dma0_ch0_i2s0_Lout
+00012682                _set_dma0_ch1_i2s0_Rout
+000126e0                _set_dma0_ch2_i2s0_Lin
+0001273e                _set_dma0_ch3_i2s0_Rin
+0001279c                _enable_dma_int
+000127a9                _DMA_Isr
+00012967                __divd
+00012d33                _AIC3204_init
+00013061                _tremoloInit
+000130b3                _tremolo_init
+0001311e                _tremolo
+0001323f                _process
+000132b1                _rounding16
+000132f9                _tremoloProcess
+0001333f                _tremoloSweep
+00013374                _i2s0_read_CR
+0001337a                _i2s0_write_CR
+00013380                _i2s0_read_SRGR
+00013386                _i2s0_write_SRGR
+0001338c                _i2s0_read_TXL_LSW
+00013392                _i2s0_write_TXL_LSW
+00013398                _i2s0_read_TXL_MSW
+0001339e                _i2s0_write_TXL_MSW
+000133a4                _i2s0_read_TXR_LSW
+000133aa                _i2s0_write_TXR_LSW
+000133b0                _i2s0_read_TXR_MSW
+000133b6                _i2s0_write_TXR_MSW
+000133bc                _i2s0_read_INTR
+000133c2                _i2s0_read_INT_MASK
+000133c8                _i2s0_write_INT_MASK
+000133ce                _i2s0_read_RXL_LSW
+000133d4                _i2s0_write_RXL_LSW
+000133da                _i2s0_read_RXL_MSW
+000133e0                _i2s0_write_RXL_MSW
+000133e6                _i2s0_read_RXR_LSW
+000133ec                _i2s0_write_RXR_LSW
+000133f2                _i2s0_read_RXR_MSW
+000133f8                _i2s0_write_RXR_MSW
+000133fe                _i2s1_read_CR
+00013404                _i2s1_write_CR
+0001340a                _i2s1_read_SRGR
+00013410                _i2s1_write_SRGR
+00013416                _i2s1_read_TXL_LSW
+0001341c                _i2s1_write_TXL_LSW
+00013422                _i2s1_read_TXL_MSW
+00013428                _i2s1_write_TXL_MSW
+0001342e                _i2s1_read_TXR_LSW
+00013434                _i2s1_write_TXR_LSW
+0001343a                _i2s1_read_TXR_MSW
+00013440                _i2s1_write_TXR_MSW
+00013446                _i2s1_read_INTR
+0001344c                _i2s1_read_INT_MASK
+00013452                _i2s1_write_INT_MASK
+00013458                _i2s1_read_RXL_LSW
+0001345e                _i2s1_write_RXL_LSW
+00013464                _i2s1_read_RXL_MSW
+0001346a                _i2s1_write_RXL_MSW
+00013470                _i2s1_read_RXR_LSW
+00013476                _i2s1_write_RXR_LSW
+0001347c                _i2s1_read_RXR_MSW
+00013482                _i2s1_write_RXR_MSW
+00013488                _i2s2_read_CR
+0001348e                _i2s2_write_CR
+00013494                _i2s2_read_SRGR
+0001349a                _i2s2_write_SRGR
+000134a0                _i2s2_read_TXL_LSW
+000134a6                _i2s2_write_TXL_LSW
+000134ac                _i2s2_read_TXL_MSW
+000134b2                _i2s2_write_TXL_MSW
+000134b8                _i2s2_read_TXR_LSW
+000134be                _i2s2_write_TXR_LSW
+000134c4                _i2s2_read_TXR_MSW
+000134ca                _i2s2_write_TXR_MSW
+000134d0                _i2s2_read_INTR
+000134d6                _i2s2_read_INT_MASK
+000134dc                _i2s2_write_INT_MASK
+000134e2                _i2s2_read_RXL_LSW
+000134e8                _i2s2_write_RXL_LSW
+000134ee                _i2s2_read_RXL_MSW
+000134f4                _i2s2_write_RXL_MSW
+000134fa                _i2s2_read_RXR_LSW
+00013500                _i2s2_write_RXR_LSW
+00013506                _i2s2_read_RXR_MSW
+0001350c                _i2s2_write_RXR_MSW
+00013512                _i2s3_read_CR
+00013518                _i2s3_write_CR
+0001351e                _i2s3_read_SRGR
+00013524                _i2s3_write_SRGR
+0001352a                _i2s3_read_TXL_LSW
+00013530                _i2s3_write_TXL_LSW
+00013536                _i2s3_read_TXL_MSW
+0001353c                _i2s3_write_TXL_MSW
+00013542                _i2s3_read_TXR_LSW
+00013548                _i2s3_write_TXR_LSW
+0001354e                _i2s3_read_TXR_MSW
+00013554                _i2s3_write_TXR_MSW
+0001355a                _i2s3_read_INTR
+00013560                _i2s3_read_INT_MASK
+00013566                _i2s3_write_INT_MASK
+0001356c                _i2s3_read_RXL_LSW
+00013572                _i2s3_write_RXL_LSW
+00013578                _i2s3_read_RXL_MSW
+0001357e                _i2s3_write_RXL_MSW
+00013584                _i2s3_read_RXR_LSW
+0001358a                _i2s3_write_RXR_LSW
+00013590                _i2s3_read_RXR_MSW
+00013596                _i2s3_write_RXR_MSW
+0001359c                _enable_i2s0
+000135aa                _enable_i2s1
+000135b8                _enable_i2s2
+000135c6                _enable_i2s3
+000135d4                _disable_i2s0
+000135e2                _disable_i2s1
+000135f0                _disable_i2s2
+000135fe                _disable_i2s3
+0001372d                __cleanup
+00013787                _freopen
+00013850                _fopen
+0001388b                __remull
+000138d9                __remlli
+00013908                __mpylli
+000139c0                __divull
+00013ab4                __divlli
+00013ae9                __addd
+00013d43                _sin
+00013f35                __neqd
+00013f69                __lssd
+00013fb1                __leqd
+00013ffe                __gtrd
+00014049                __geqd
+00014093                __eqld
+000140c7                __cmpd
+0001411f                _fputs
+00014254                _puts
+00014282                __mpyd
+000143ce                _setvbuf
+000144b4                __wrt_ok
+00014534                __rd_ok
+00014591                __doflush
+000145fa                _fflush
+00014653                _modf
+00014712                _writemsg
+000147c7                C$$IO$$
+000147cc                _fputc
+000147cc                _putc
+00014863                _putchar
+00014872                __divul
+00014913                _ltoa
+00014990                _initGPIO
+0001499e                _readGPIO
+000149a8                _main
+00014a0b                _fclose
+00014a86                reset_isr
+00014aff                __frcmpyd
+00014b75                __frcmpyd_div
+00014be8                __remul
+00014c5a                __fixdli
+00014cc9                _readmsg
+00014d36                _fseek
+00014da1                __fltlid
+00014e08                __nround
+00014e67                _atoi
+00014ec3                _set_i2s0_master
+00014ef2                _set_i2s0_slave
+00014f14                _printf
+00014f64                _auto_init
+00014fb1                __args_main
+00014ffc                __remli
+00015047                __divli
+0001508f                __trunc
+000150d0                _memcpy
+0001510f                _exit
+0001514d                _c_int00
+00015181                __fixdi
+000151ab                I$$UDIV
+000151ab                __divu
+000151c0                I$$UMOD
+000151c0                __remu
+000151d5                _memccpy
+000151f8                ___isinf
+00015212                __subd
+00015226                I$$LMPY
+00015226                __mpyli
+00015239                __register_unlock
+00015241                __register_lock
+00015249                __nop
+0001524b                __negd
+0001525b                __fltid
+00015267                _remove
+00015271                _abort
+00015272                C$$EXIT
+0001527c                ___etext__
+            0000a93e    __ctypes_
+0001527c                etext
+            0000ab18    __CIOBUF_
+            0000ac38    ___cinit__
+            0000ac38    cinit
+ffffffff                ___binit__
+ffffffff                ___c_args__
+ffffffff                ___pinit__
+ffffffff                binit
+ffffffff                pinit
+
+[292 symbols]
